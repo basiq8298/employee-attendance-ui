@@ -1,0 +1,95 @@
+﻿@model WebApplication7.ViewModel.PredictionViewModel
+
+<h4>Predictor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Prediction">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Dept" class="control-label">Department ID</label>
+                <input asp-for="Dept" class="form-control" placeholder="Department ID" />
+                <span asp-validation-for="Dept" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StaffID" class="control-label" >Employee ID</label>
+                <input asp-for="StaffID" class="form-control" placeholder="Employee ID"/>
+                <span asp-validation-for="StaffID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event" class="control-label">Weather Event</label>
+                <div class="form-group">
+                    <select id="Event" name="Event" class="form-control">
+                        <option selected="selected" value="Normal">Normal</option>
+                        <option value="Rain">Rain</option>
+                        <option value="Fog">Fog</option>
+                        <option value="Fog , Rain">Fog , Rain</option>
+                        <option value="Thunderstorm">Thunderstorm</option>
+                        <option value="Rain , Thunderstorm">Rain , Thunderstorm</option>
+                        <option value="Rain , Hail , Thunderstorm">Rain , Hail , Thunderstorm</option>
+                        <option value="Fog , Rain , Thunderstorm">Fog , Rain , Thunderstorm</option>
+                    </select>
+                </div>
+                <span asp-validation-for="Event" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PotentialDay" class="control-label">Public Holiday</label>
+                <div class="form-group">
+                    <select id="PotentialDay" name="PotentialDay" class="form-control">
+                        <option selected="selected" value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <span asp-validation-for="PotentialDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Session" class="control-label">Work pressure</label>
+                <div class="form-group">
+                    <select id="Session" name="Session" class="form-control">
+                        <option selected="selected" value="working months">Working Months</option>
+                        <option value="holiday months">Holiday Months</option>
+                    </select>
+                </div>
+                <span asp-validation-for="Session" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather" class="control-label"></label>
+                <div class="form-group">
+                    <select id="Weather" name="Weather" class="form-control">
+                        <option selected="selected" value="Hot">Hot</option>
+                        <option value="Very Hot">Very Hot</option>
+                        <option value="Cold">Cold</option>
+                        <option value="Very Cold">Very Cold</option>
+                    </select>
+                </div>
+                <span asp-validation-for="Weather" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="jobSatisfaction" class="control-label">Job Satisfaction</label>
+                <div class="form-group">
+                    <select id="jobSatisfaction" name="jobSatisfaction" class="form-control">
+                        <option selected="selected" value="1">Initial</option>
+                        <option value="2">Basic</option>
+                        <option value="3">Good</option>
+                        <option value="4">Satisfied</option>
+                    </select>
+                </div>
+                <span asp-validation-for="jobSatisfaction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Predict" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

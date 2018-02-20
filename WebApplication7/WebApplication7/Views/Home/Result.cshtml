@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var data = (string)ViewData["result"];
+}
+
+@*<h1>Employee Status : @data</h1>*@
+
+@if (data == "Present")
+{
+<h1 style="color:green">Employee Status : @data</h1>
+}
+else
+{
+<h1 style="color:red" >Employee Status : @data</h1>
+}
